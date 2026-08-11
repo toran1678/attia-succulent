@@ -74,7 +74,10 @@ export default function Modal({ succulent, onClose }: ModalProps) {
   const hasImg = Boolean(currentImgSrc) && !imgError;
   const isMultiImg = imageList.length > 1;
 
-  const kakaoUrl = `${KAKAO_OPEN_CHAT_URL}?text=${encodeURIComponent(`[${name}] 분양 문의드립니다.`)}`;
+  const formattedPrice = price ? `${price.toLocaleString('ko-KR')}원` : '가격 문의';
+  const tagListText = tags && tags.length > 0 ? ` [${tags.join(', ')}]` : '';
+  const messageText = `안녕하세요! 아래 다육이 분양 문의드립니다.😊\n\n📌 상품명: ${name}${scientificName ? ` (${scientificName})` : ''}\n💰 가격: ${formattedPrice}${tagListText ? `\n🏷️ 카테고리:${tagListText}` : ''}`;
+  const kakaoUrl = `${KAKAO_OPEN_CHAT_URL}?text=${encodeURIComponent(messageText)}`;
 
   const handlePrevImg = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
