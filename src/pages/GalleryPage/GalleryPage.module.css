@@ -2,10 +2,10 @@
 .hero {
   position: relative;
   background-size: cover;
-  background-position: center top;
+  background-position: right 45%;
   background-repeat: no-repeat;
-  padding-block: 80px 48px;
-  min-height: 520px;
+  padding-block: 72px 48px;
+  min-height: 540px;
   overflow: hidden;
   image-rendering: -webkit-optimize-contrast;
   border-bottom: 1px solid #E0D8CE;
