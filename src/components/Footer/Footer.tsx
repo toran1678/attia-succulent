@@ -1,17 +1,20 @@
-import { PiPlantFill } from 'react-icons/pi';
 import { RiKakaoTalkFill, RiYoutubeFill } from 'react-icons/ri';
 import { KAKAO_CHANNEL_URL, YOUTUBE_URL } from '../../data/succulents';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const logoPath = `${import.meta.env.BASE_URL}logo.png`;
 
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
-          <PiPlantFill className={styles.brandIcon} aria-hidden="true" />
-          <span className={styles.brandName}>아띠아 다육</span>
+          <img src={logoPath} alt="아띠아 다육 로고" className={styles.brandImg} />
+          <div className={styles.brandText}>
+            <span className={styles.brandName}>아띠아 다육</span>
+            <span className={styles.brandSub}>ATTIA SUCCULENT</span>
+          </div>
         </div>
 
         <p className={styles.desc}>

@@ -17,19 +17,36 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
-.brandIcon {
-  font-size: 1.5rem;
-  color: var(--color-primary);
+.brandImg {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
 }
 
 .brandName {
-  font-family: var(--font-serif);
-  font-size: var(--text-xl);
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 1.55rem;
+  font-weight: 700;
   color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.brandSub {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #68704F;
+  letter-spacing: 0.08em;
 }
 
 /* ── 설명 ── */

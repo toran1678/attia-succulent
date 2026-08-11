@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { PiCactus, PiLeafFill, PiPlantFill, PiSpinnerGapFill } from 'react-icons/pi';
+import { PiLeafFill, PiSpinnerGapFill, PiPlantFill } from 'react-icons/pi';
 import type { Succulent, SucculentTag, SucculentTrait } from '../../types';
 import FilterChips from '../../components/FilterChips/FilterChips';
 import GalleryCard from '../../components/GalleryCard/GalleryCard';
@@ -134,38 +134,67 @@ export default function GalleryPage() {
   return (
     <>
       {/* ── 히어로 섹션 ── */}
-      <section className={styles.hero} aria-label="소개">
+      <section
+        className={styles.hero}
+        aria-label="소개"
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}background.png)` }}
+      >
         <div className={`container ${styles.heroInner}`}>
-          <p className={styles.heroEyebrow}>
-            <PiCactus className={styles.heroIcon} aria-hidden="true" />
-            Attia Succulent
-          </p>
-          <h1 className={styles.heroTitle}>
-            작고 소중한<br />
-            <span className={styles.heroAccent}>다육이</span> 분양합니다
-          </h1>
-          <p className={styles.heroDesc}>
-            정성껏 키운 다육이들을 소개해요.<br />
-            마음에 드는 아이가 있으면 카카오로 문의해 주세요
-            <PiLeafFill className={styles.heroDescIcon} aria-hidden="true" />
-          </p>
-          <div className={styles.heroStats}>
-            <div className={styles.stat}>
-              <span className={styles.statNum}>{dataList.length}</span>
-              <span className={styles.statLabel}>종 보유</span>
-            </div>
-            <div className={styles.statDivider} />
-            <div className={styles.stat}>
-              <span className={styles.statNum}>{dataList.filter((s) => s.inStock).length}</span>
-              <span className={styles.statLabel}>분양 가능</span>
-            </div>
-            <div className={styles.statDivider} />
-            <div className={styles.stat}>
-              <span className={styles.statNum}>직거래</span>
-              <span className={styles.statLabel}>택배 가능</span>
-            </div>
+          {/* 텍스트 영역 */}
+          <div className={styles.heroContent}>
+            <p className={styles.heroEyebrow}>
+              작은 초록이 주는
+              <svg className={styles.heroEyebrowIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+            </p>
+            <h1 className={styles.heroTitle}>
+              일상의 작은 <span className={styles.heroAccent}>행복</span>
+            </h1>
+            <div className={styles.heroDivider} aria-hidden="true" />
+            <p className={styles.heroDesc}>
+              정성스럽게 키운 다육식물을<br />
+              당신의 공간에 전해드려요.
+            </p>
+            <a href="#gallery" className={styles.heroCta}>
+              다육이 보러가기
+              <span className={styles.heroCtaArrow}>→</span>
+            </a>
           </div>
         </div>
+
+        {/* 하단 특징 뱃지 3개 */}
+        <div className={`container ${styles.heroFeatures}`}>
+          <div className={styles.featureCard}>
+            <svg className={styles.featureIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M16.17 7.83 2 22"/>
+              <path d="M4.02 12a2.827 2.827 0 1 1 3.81-4.17A2.827 2.827 0 1 1 12 4.02a2.827 2.827 0 1 1 4.17 3.81A2.827 2.827 0 1 1 19.98 12a2.827 2.827 0 1 1-3.81 4.17A2.827 2.827 0 1 1 12 19.98a2.827 2.827 0 1 1-4.17-3.81A1 1 0 1 1 4 12"/>
+              <path d="m7.83 7.83 8.34 8.34"/>
+            </svg>
+            <strong className={styles.featureTitle}>건강한 다육이</strong>
+            <span className={styles.featureSub}>꼼꼼한 선별과 관리</span>
+          </div>
+          <div className={styles.featureCard}>
+            <svg className={styles.featureIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/>
+              <path d="M12 22V12"/>
+              <polyline points="3.29 7 12 12 20.71 7"/>
+              <path d="m7.5 4.27 9 5.15"/>
+            </svg>
+            <strong className={styles.featureTitle}>안심 포장 배송</strong>
+            <span className={styles.featureSub}>안전하고 빠르게</span>
+          </div>
+          <div className={styles.featureCard}>
+            <svg className={styles.featureIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+            </svg>
+            <strong className={styles.featureTitle}>따뜻한 식물 이야기</strong>
+            <span className={styles.featureSub}>식물과 함께하는 삶</span>
+          </div>
+        </div>
+
+
       </section>
 
       {/* ── 필터 칩 (상단 태그 + 하단 검색/형질 드롭다운) ── */}
