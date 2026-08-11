@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { PiLeafFill, PiSpinnerGapFill, PiPlantFill } from 'react-icons/pi';
+import { PiSpinnerGapFill, PiPlantFill } from 'react-icons/pi';
 import type { Succulent, SucculentTag, SucculentTrait } from '../../types';
 import FilterChips from '../../components/FilterChips/FilterChips';
 import GalleryCard from '../../components/GalleryCard/GalleryCard';

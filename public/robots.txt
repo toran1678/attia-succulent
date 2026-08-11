@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# 네이버, 구글, 다음 등 검색 엔진 사이트맵 지정
 Sitemap: https://toran1678.github.io/attia-succulent/sitemap.xml
