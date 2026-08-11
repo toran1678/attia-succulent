@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://toran1678.github.io/attia-succulent/sitemap.xml
