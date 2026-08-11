@@ -47,59 +47,70 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  margin-top: var(--space-1);
 }
 
-/* ── 카카오 버튼 ── */
+/* ── 카카오 채널 버튼 (부드러운 파스텔 옐로우) ── */
 .kakaoBtn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-3) var(--space-5);
-  background-color: var(--color-kakao);
-  color: var(--color-kakao-text);
+  padding: var(--space-2) var(--space-5);
+  height: 38px;
+  background-color: #fef7d6;
+  color: #523b00;
+  border: 1px solid #f5e79e;
   font-size: var(--text-sm);
-  font-weight: 700;
+  font-weight: 600;
   border-radius: var(--radius-full);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .kakaoBtn svg {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  color: #3c1e1e;
 }
 
 .kakaoBtn:hover {
+  background-color: #fde882;
+  border-color: #f0d85a;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .kakaoBtn:active {
   transform: translateY(0);
 }
 
-/* ── 유튜브 버튼 ── */
+/* ── 유튜브 버튼 (부드러운 소프트 로즈/레드) ── */
 .youtubeBtn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-3) var(--space-5);
-  background-color: #FF0000;
-  color: #fff;
+  padding: var(--space-2) var(--space-5);
+  height: 38px;
+  background-color: #fdeaea;
+  color: #c62828;
+  border: 1px solid #f8c9c9;
   font-size: var(--text-sm);
-  font-weight: 700;
+  font-weight: 600;
   border-radius: var(--radius-full);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .youtubeBtn svg {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  color: #e53935;
 }
 
 .youtubeBtn:hover {
+  background-color: #fbcbcb;
+  border-color: #f59f9f;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .youtubeBtn:active {

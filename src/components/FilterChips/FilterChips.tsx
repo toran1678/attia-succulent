@@ -1,10 +1,11 @@
 import { useRef, useState, useCallback, useEffect, useMemo } from 'react';
 import { PiMagnifyingGlass, PiX, PiLeaf, PiPlant, PiCaretDownBold } from 'react-icons/pi';
-import type { SucculentTag, SucculentTrait } from '../../types';
-import { FILTER_TAGS, FILTER_TRAITS, succulents } from '../../data/succulents';
+import type { Succulent, SucculentTag, SucculentTrait } from '../../types';
+import { FILTER_TAGS, FILTER_TRAITS } from '../../data/succulents';
 import styles from './FilterChips.module.css';
 
 interface FilterChipsProps {
+  dataList: Succulent[];
   activeTag: SucculentTag;
   onTagChange: (tag: SucculentTag) => void;
   activeTrait: SucculentTrait | null;
@@ -20,6 +21,7 @@ interface Suggestion {
 }
 
 export default function FilterChips({
+  dataList,
   activeTag,
   onTagChange,
   activeTrait,
@@ -35,16 +37,18 @@ export default function FilterChips({
   const [highlightIdx, setHighlightIdx] = useState(-1);
   const [isTraitOpen, setIsTraitOpen] = useState(false);
 
+  /* ── 실시간 구글 시트 데이터 기반 카테고리 태그 개수 동적 계산 ── */
   const getTagCount = (tag: SucculentTag): number => {
-    if (tag === '전체') return succulents.length;
-    return succulents.filter((s) => s.tags.includes(tag)).length;
+    if (tag === '전체') return dataList.length;
+    return dataList.filter((s) => s.tags.includes(tag)).length;
   };
 
+  /* ── 실시간 구글 시트 데이터 기반 형질/특징 개수 동적 계산 ── */
   const getTraitCount = (trait: SucculentTrait): number => {
-    return succulents.filter((s) => s.traits?.includes(trait)).length;
+    return dataList.filter((s) => s.traits?.includes(trait)).length;
   };
 
-  /* ── 자동완성 후보 생성 (다육이 이름 및 학명만 포함) ── */
+  /* ── 자동완성 후보 생성 (실시간 데이터의 다육이 이름 및 학명 포함) ── */
   const suggestions = useMemo<Suggestion[]>(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q) return [];
@@ -60,17 +64,17 @@ export default function FilterChips({
       }
     };
 
-    for (const s of succulents) {
+    for (const s of dataList) {
       if (s.name.toLowerCase().includes(q)) {
         add({ type: 'name', text: s.name, subText: s.scientificName });
       }
-      if (s.scientificName.toLowerCase().includes(q)) {
+      if (s.scientificName && s.scientificName.toLowerCase().includes(q)) {
         add({ type: 'scientific', text: s.scientificName, subText: s.name });
       }
     }
 
     return results.slice(0, 8);
-  }, [searchQuery]);
+  }, [searchQuery, dataList]);
 
   const showDropdown = isFocused && suggestions.length > 0;
 
@@ -261,7 +265,7 @@ export default function FilterChips({
                   onClick={() => { onTraitChange(null); setIsTraitOpen(false); }}
                 >
                   <span>형질·특징 전체</span>
-                  <span className={styles.traitMenuCount}>{succulents.length}</span>
+                  <span className={styles.traitMenuCount}>{dataList.length}</span>
                 </button>
                 {FILTER_TRAITS.map((trait) => {
                   const count = getTraitCount(trait as SucculentTrait);
