@@ -1,0 +1,32 @@
+.placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #f0f4f1 0%, #e2ebd5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary-dark);
+  opacity: 0.85;
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+}
+
+.text {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-dark);
+}

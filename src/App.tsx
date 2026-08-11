@@ -1,9 +1,15 @@
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import GalleryPage from './pages/GalleryPage/GalleryPage';
+
 function App() {
   return (
     <div>
-      <h1>다육이 판매 사이트</h1>
+      <Header />
+      <GalleryPage />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,114 @@
+.footer {
+  background-color: var(--color-bg-muted);
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-10) var(--space-8);
+  margin-top: var(--space-16);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+/* ── 브랜드 ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.brandIcon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.brandName {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* ── 설명 ── */
+.desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-sub);
+  max-width: 360px;
+  word-break: keep-all;
+  line-height: 1.7;
+}
+
+/* ── 소셜 버튼 행 ── */
+.socialRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* ── 카카오 버튼 ── */
+.kakaoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-kakao);
+  color: var(--color-kakao-text);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.kakaoBtn svg {
+  font-size: 1.1rem;
+}
+
+.kakaoBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.kakaoBtn:active {
+  transform: translateY(0);
+}
+
+/* ── 유튜브 버튼 ── */
+.youtubeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background-color: #FF0000;
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.youtubeBtn svg {
+  font-size: 1.1rem;
+}
+
+.youtubeBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.youtubeBtn:active {
+  transform: translateY(0);
+}
+
+/* ── 저작권 ── */
+.copy {
+  font-size: var(--text-xs);
+  color: var(--color-text-sub);
+  margin-top: var(--space-2);
+}
